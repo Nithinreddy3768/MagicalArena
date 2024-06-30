@@ -4,8 +4,8 @@ import main.model.Player;
 
 import java.util.HashMap;
 
-public class PlayersDao {
-    HashMap<String, Player> players = new HashMap<>();
+public class PlayerDao {
+    private final HashMap<String, Player> players = new HashMap<>();
 
     public void createPlayer(int attack, int strength, int health, String username) {
         if (players.containsKey(username)) {

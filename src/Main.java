@@ -1,18 +1,14 @@
-import main.dao.PlayersDao;
-import main.model.Player;
-import main.service.Match;
+import main.MagicalArena;
+import main.model.Match;
+import main.model.Round;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        PlayersDao playersDao = new PlayersDao();
-        playersDao.createPlayer(5, 10, 50, "playerA");
-        playersDao.createPlayer(10, 5, 60, "playerB");
+        MagicalArena magicalArena = new MagicalArena();
+        magicalArena.addPlayerToArena("playerA", 50, 10, 5);
+        magicalArena.addPlayerToArena("playerB", 60, 5, 10);
 
-        Player playerA = playersDao.getPlayer("playerA");
-        Player playerB = playersDao.getPlayer("playerB");
-        Match match = new Match(playerA, playerB);
-        System.out.println(match.play());
+        Match match = magicalArena.playMatch("playerA", "playerB");
+        System.out.println(match.getWinner());
     }
 }
